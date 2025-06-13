@@ -1,8 +1,13 @@
-# ReasearchSync
+# reasearchSync
 
-An AI app powered by MCP server using FastAPI, a Prefect workflow to fetch and store paper metadata, and deployed on AWS EC2 with Docker. The papers are stored in Notion Database and Redis for vectorised data.
+researchSync offers two services:
 
-Python version: 3.11
+1. **FastAPI-MCP Server**: Connects to MCP Hosts like Claude Desktop to retrieve papers' metadata from arXiv and store it in a Notion database. You can then query this database to find the best paper you need.
+  
+2. **Web App**: Powered by Gradio (with plans to migrate to React in the future) for the frontend and FastAPI for the backend. It uses a Notion and Redis database to store metadata of the papers from arXiv and vector embeddings for retrieving the best papers based on user queries.
+
+## Python Version
+- **Python**: 3.11
 
 ## System Overview
 
@@ -18,19 +23,5 @@ The system will:
 
 ![prefect-workflow.png](prefect-workflow.png)
 
-
-## Communication Architecture
-┌─────────────────────┐    HTTP Requests     ┌─────────────────────┐
-│   Gradio App        │ ─────────────────── │   MCP Server        │
-│   (port 7860)       │ ←─────────────────── │   (port 8000)       │
-│                     │    JSON Responses    │                     │
-│ ResearchPapersClient│                      │ ResearchPapersMCP   │
-└─────────────────────┘                      └─────────────────────┘
-         │                                              │
-         │                                              │
-    User Interface                              Backend Processing
-    - Search forms                              - Redis Vector DB
-    - Data tables                               - Notion API
-    - Buttons/inputs                            - Embeddings
 
 

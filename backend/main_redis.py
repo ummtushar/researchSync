@@ -77,7 +77,6 @@ class NotionRedisSync:
                 response = self.notion_client.databases.query(
                     database_id=self.database_id,
                     start_cursor=next_cursor,
-                    # page_size=100  # Maximum page size
                 )
                 
                 # Process each paper

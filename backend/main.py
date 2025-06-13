@@ -199,8 +199,8 @@ def sync_arxiv_to_notion(days_back: int = 30, target_papers: int = 100):
     failed_adds = 0
     
     notion_token = 'ntn_I8446634157a83A61IttkJePdbRglYfIl1xrf621koSgmm'
-    # database_id = '2041f77568ad812e8e61e7c28efcf410' 
-    database_id = db_id
+    database_id = '2041f77568ad812e8e61e7c28efcf410' #hardcode to always stick to the same database
+    # database_id = db_id #uncomment to always initialise a new database
 
     
     os.environ["NOTION_DATABASE_ID"] = db_id

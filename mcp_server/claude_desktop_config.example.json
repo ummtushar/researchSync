@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+      "notion-arxiv": {
+        "command": "path/to/.conda/bin/python",
+        "args": ["path/to/mcp_claude_server.py"],
+        "env": {
+          "NOTION_TOKEN": "add_token",
+          "NOTION_PARENT_PAGE_ID": "add_id"
+        }
+      }
+    }
+  }
